@@ -46,8 +46,8 @@ end)
 
 --sellsdrug ok
 
-RegisterServerEvent('qb-lsd:')
-AddEventHandler('qb-lsd:sellsd', function()
+RegisterServerEvent('qb-lsd:selld')
+AddEventHandler('qb-lsd:selld', function()
 	local src = source
 	local Player = QBCore.Functions.GetPlayer(src)
 	local Item = Player.Functions.GetItemByName('lsd')
