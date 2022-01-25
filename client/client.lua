@@ -313,7 +313,7 @@ function SellDrug3()  -- simple animations to loop while process is taking place
 		disableCombat = true,
 		disableInventory = false,
 	}, {}, {}, {}, function()
-	 TriggerServerEvent('qb-lsd:sellsd') -- Done
+	 TriggerServerEvent('qb-lsd:selld') -- Done
 
 		local timeLeft = Config.Delays.MakeLSD / 1000
 
