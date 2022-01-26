@@ -4,6 +4,11 @@ https://github.com/Predator7158
 Join My Server
 https://discord.gg/nbMazBXaVa
 
+I used qb-weedpicking as the Base
+
+qb-weedpicking Author - https://github.com/MrEvilGamer
+
+
 #More Scripts Coming Soon#
 
 **IMPORTANT**
