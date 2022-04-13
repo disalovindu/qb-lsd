@@ -17,7 +17,7 @@ AddEventHandler('qb-lsd:filledBottles', function()
 	else
 		TriggerClientEvent('QBCore:Notify', src, 'You don\'t have Empty Bottles', "error")
 	end
-end)	
+end)
 
 RegisterServerEvent('qb-lsd:makelsd')
 AddEventHandler('qb-lsd:makelsd', function()
@@ -25,20 +25,11 @@ AddEventHandler('qb-lsd:makelsd', function()
 	local Player = QBCore.Functions.GetPlayer(src)
 
 	if Player.Functions.GetItemByName('acid_bottle') then
-		local chance = math.random(1, 8)
-		if chance == 1 or chance == 2 or chance == 3 or chance == 4 or chance == 5 or chance == 6 or chance == 7 or chance == 8 then
-			Player.Functions.RemoveItem('acid_bottle', 2)----change this
-			Player.Functions.AddItem('lsd', 1)----change this
-			TriggerClientEvent("inventory:client:ItemBox", source, QBCore.Shared.Items['acid_bottle'], "remove")
-			TriggerClientEvent("inventory:client:ItemBox", source, QBCore.Shared.Items['lsd'], "add")
-			TriggerClientEvent('QBCore:Notify', src, 'LSD Made successfully', "success")  
-		else
-			--Player.Functions.RemoveItem('cannabis', 1)----change this
-			--Player.Functions.RemoveItem('empty_weed_bag', 1)----change this
-			--TriggerClientEvent("inventory:client:ItemBox", source, QBCore.Shared.Items['cannabis'], "remove")
-			--TriggerClientEvent("inventory:client:ItemBox", source, QBCore.Shared.Items['empty_weed_bag'], "remove")
-			--TriggerClientEvent('QBCore:Notify', src, 'You messed up and got nothing', "error") 
-		end 
+		Player.Functions.RemoveItem('acid_bottle', 1)----change this
+		Player.Functions.AddItem('lsd', 1)----change this
+		TriggerClientEvent("inventory:client:ItemBox", source, QBCore.Shared.Items['acid_bottle'], "remove")
+		TriggerClientEvent("inventory:client:ItemBox", source, QBCore.Shared.Items['lsd'], "add")
+		TriggerClientEvent('QBCore:Notify', src, 'LSD Made successfully', "success")
 	else
 		TriggerClientEvent('QBCore:Notify', src, 'You don\'t have the right items', "error") 
 	end
@@ -50,28 +41,21 @@ RegisterServerEvent('qb-lsd:selld')
 AddEventHandler('qb-lsd:selld', function()
 	local src = source
 	local Player = QBCore.Functions.GetPlayer(src)
-	local Item = Player.Functions.GetItemByName('lsd')
-   
-	
-      
+	local Item = Player.Functions.GetItemByName('lsd')  
 	for i = 1, Item.amount do
-	if Item.amount >0 then
-	if Player.Functions.GetItemByName('lsd') then
-		local chance2 = math.random(1, 8)
-		if chance2 == 1 or chance2 == 2 or chance2 == 9 or chance2 == 4 or chance2 == 10 or chance2 == 6 or chance2 == 7 or chance2 == 8 then
-			Player.Functions.RemoveItem('lsd', 1)----change this
-			TriggerClientEvent("inventory:client:ItemBox", source, QBCore.Shared.Items['lsd'], "remove")
-			Player.Functions.AddMoney("cash", Config.Pricesell, "sold-pawn-items")
-			TriggerClientEvent('QBCore:Notify', src, 'You Sold LSD', "success")   
-		end 
-	else
-		TriggerClientEvent('QBCore:Notify', src, 'You don\'t have the right items', "error") 
+		if Item.amount >0 then
+			if Player.Functions.GetItemByName('lsd') then
+				Player.Functions.RemoveItem('lsd', 1)----change this
+				TriggerClientEvent("inventory:client:ItemBox", source, QBCore.Shared.Items['lsd'], "remove")
+				Player.Functions.AddMoney("cash", Config.Pricesell, "sold-pawn-items")
+				TriggerClientEvent('QBCore:Notify', src, 'You Sold LSD', "success")   
+			else
+				TriggerClientEvent('QBCore:Notify', src, 'You don\'t have the right items', "error") 
+			end
+		else
+			TriggerClientEvent('QBCore:Notify', src, 'You don\'t have the right items', "error") 
+		end
 	end
-else
-	TriggerClientEvent('QBCore:Notify', src, 'You don\'t have the right items', "error") 
-	
-end
-end
 end)
 
 
